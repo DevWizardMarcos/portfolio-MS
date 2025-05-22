@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SeriesFinder | Buscador de Séries</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>SeriesFinder</h1>
+        <p>Descubra detalhes sobre suas séries favoritas</p>
+      </header>
+
+      <div class="search-container">
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Digite o nome da série..."
+        />
+        <button id="search-button" onclick="buscarSeries()">Buscar</button>
+      </div>
+
+      <div class="loading" style="display: none">
+        <div class="spinner"></div>
+        <p>Carregando...</p>
+      </div>
+
+      <div class="error-message" style="display: none">
+        <p>Série não encontrada. Tente outro nome.</p>
+      </div>
+
+      <div class="series-container" id="series-container">
+        <div class="series-header">
+          <img
+            id="series-poster"
+            class="series-poster"
+            src=""
+            alt="Poster da série"
+          />
+          <div class="series-info">
+            <h2 id="series-title" class="series-title"></h2>
+            <div class="series-meta">
+              <span
+                ><strong>Nota:</strong> <span id="series-rating"></span
+              ></span>
+              <span
+                ><strong>Duração:</strong>
+                <span id="series-runtime"></span> min</span
+              >
+              <span
+                ><strong>Estreia:</strong> <span id="series-premiered"></span
+              ></span>
+              <span class="series-status" id="series-status"></span>
+            </div>
+            <div class="genres-list" id="genres-list"></div>
+          </div>
+        </div>
+        <div class="series-details">
+          <h3 class="section-title">Sinopse</h3>
+          <div class="summary" id="series-summary"></div>
+        </div>
+      </div>
+
+      <div id="series-list"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,3 +1,28 @@
+const aboutImg = document.getElementById('about-img')
+const imgUser="./img/ne que ficou bom.png"
+const imgHover="./img/img-transicao.jpg"
+
+aboutImg.addEventListener('mouseenter',()=>{
+  aboutImg.style.opacity= 0;
+  setTimeout(()=>{
+    aboutImg.src=imgHover;
+    aboutImg.style.opactity = 1;
+  }, 300);
+})
+
+aboutImg.addEventListener("mouseleave", ()=>{
+  aboutImg.style.opacity=0;
+  setTimeout(()=>{
+    aboutImg.src=imgUser;
+    aboutImg.style.opacity=1;
+  }, 300);
+  });
+
+
+
+
+
+
 const menuToggle = document.getElementById("menu-toggle");
 const navList = document.getElementById("nav-list");
 
@@ -22,17 +47,6 @@ const projetos = [
     imagem: "https://localizarcep.com/assets/images/blog/sobre-cep.jpg",
     link: "",
   },
-
-
-
-
-
-
-
-
-
-
-
 
 ];
 

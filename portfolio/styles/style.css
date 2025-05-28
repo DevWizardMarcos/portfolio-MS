@@ -139,6 +139,8 @@ nav a:hover::after {
     object-fit: cover;
     border: 5px solid var(--primary-color);
     box-shadow: rgba(0, 0, 0, 0.1) 0px 8px 24px;
+    transition: opacity 0.5s;
+    cursor: pointer;
 }
 
 .about-text {

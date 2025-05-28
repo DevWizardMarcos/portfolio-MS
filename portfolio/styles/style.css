@@ -179,7 +179,38 @@ nav a:hover::after {
 }
 
 
+/* ...existing code... */
+.about-img-border {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  border: 5px solid var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: spin 2.5s linear infinite;
+  transition: animation-direction 0.3s;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 8px 24px;
+}
 
+.about-img-container:hover .about-img-border {
+  animation-direction: reverse;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.about-img {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: none;
+  box-shadow: none;
+}
 
 
 .about-text {

@@ -1,23 +1,36 @@
-const aboutImg = document.getElementById('about-img')
-const imgUser="./img/ne que ficou bom.png"
-const imgHover="./img/img-transicao.jpg"
 
-aboutImg.addEventListener('mouseenter',()=>{
-  aboutImg.style.opacity= 0;
-  setTimeout(()=>{
-    aboutImg.src=imgHover;
-    aboutImg.style.opactity = 1;
-  }, 300);
-})
+const aboutImg = document.getElementById('about-img');
 
-aboutImg.addEventListener("mouseleave", ()=>{
-  aboutImg.style.opacity=0;
-  setTimeout(()=>{
-    aboutImg.src=imgUser;
-    aboutImg.style.opacity=1;
-  }, 300);
-  });
+const aboutImgHover = document.createElement('img');
+aboutImgHover.src = 'img/img-transicao.jpg'; // Troque para o caminho da imagem de hover
+aboutImgHover.alt = 'Sobre mim hover';
+aboutImgHover.className = 'about-img about-img-hover';
+aboutImg.parentElement.appendChild(aboutImgHover);
 
+let imagemFixa = false;
+
+aboutImg.parentElement.addEventListener('mouseenter', () => {
+  if (!imagemFixa) {
+    aboutImgHover.classList.remove('fade-out');
+    aboutImgHover.classList.add('fade-in');
+  }
+});
+
+aboutImg.parentElement.addEventListener('mouseleave', () => {
+  if (!imagemFixa) {
+    aboutImgHover.classList.remove('fade-in');
+    aboutImgHover.classList.add('fade-out');
+  }
+});
+
+// Quando o usuário passar o mouse pela primeira vez, fixa a imagem
+aboutImg.parentElement.addEventListener('animationend', (e) => {
+  if (e.animationName === 'fadeInImg' && !imagemFixa) {
+    imagemFixa = true;
+    aboutImgHover.classList.remove('fade-in');
+    aboutImgHover.style.opacity = 1; 
+  }
+});
 
 
 

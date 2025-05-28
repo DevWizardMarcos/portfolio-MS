@@ -123,25 +123,64 @@ nav a:hover::after {
     padding: 4rem 0px;
     background: linear-gradient(135deg, #85858d, var(--secondary-color));
 }
-
-.about-container {
-    display: flex;
-    align-items: center;
-    gap: 3rem;
-    flex-wrap: wrap;
-    justify-content: center;
+.about-img-container {
+  position: relative;
+  width: 240px;
+  height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.about-img {
-    width: 240px;
-    height: 240px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 5px solid var(--primary-color);
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 8px 24px;
-    transition: opacity 0.5s;
-    cursor: pointer;
+.about-img,
+.about-img-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid var(--primary-color);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 8px 24px;
+  opacity: 1;
+  transition: border-color 0.3s;
+  pointer-events: none;
 }
+
+
+.about-img-container:hover .about-img-border {
+  animation: spin 1.5s linear infinite;
+}
+
+.about-img-hover {
+  opacity: 0;
+  z-index: 2;
+  animation: none;
+}
+
+.about-img-hover.fade-in {
+  animation: fadeInImg 2.5s forwards;
+  
+}
+
+.about-img-hover.fade-out {
+  animation: fadeOutImg 1.5s forwards;
+}
+
+@keyframes fadeInImg {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fadeOutImg {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+
+
+
 
 .about-text {
     flex: 1 1 0%;
@@ -162,14 +201,17 @@ nav a:hover::after {
 }
 
 @media (max-width: 768px) {
-    .about-container {
-        flex-direction: column;
-        text-align: center;
-    }
-
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
     .about-img {
         margin-bottom: 1rem;
     }
+  .about-img-container {
+    margin-bottom: 1rem;
+  }
 }
 
 #projects {

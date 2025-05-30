@@ -194,3 +194,24 @@ renderCarousel(marketing, "carousel-marketing");
   if (timelineItems.length > 0) {
     timelineItems[0].click();
   }
+
+    const cards = document.querySelectorAll('.course-card');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            }
+        });
+    });
+
+    cards.forEach(card => {
+        observer.observe(card);
+    });
+
+       VanillaTilt.init(document.querySelectorAll(".course-card"), {
+        max: 15,
+        speed: 400,
+        glare: true,
+        "max-glare": 0.2,
+    });
